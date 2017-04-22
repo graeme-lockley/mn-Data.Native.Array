@@ -75,6 +75,10 @@ assumptionEqual(at([1, 2, 3, 4])(9), Maybe.Nothing);
 assumptionEqual(at([1, 2, 3, 4])(-2), Maybe.Nothing);
 
 
+//- Create an array containing a range of integers from the first parameter to, but not including, the 
+//- second parameter.  If the first parameter is larger than the second parameter then the range will
+//- be a descending range.
+//= range :: Int -> Int -> Array Int
 const range = lower => upper => {
     if (lower < upper) {
         let result = [];
