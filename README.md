@@ -1,4 +1,3 @@
-# Data.Native.Array
 
 Helper functions for working directly against JavaScript arrays.  Note that all of these functions are immutable
 and do not change the state of the passed arguments.  I should therefore not be used other than in implementing
@@ -223,4 +222,4 @@ join([])(", ") == ""
 
 ## Dependencies
 
-* [Data.Native.Maybe (1.0.0)](https://github.com/graeme-lockley/mn-Data.Native.Maybe)
+* [Data.Native.Maybe (1.3.0)](https://github.com/graeme-lockley/mn-Data.Native.Maybe)

@@ -10,7 +10,7 @@
 //-
 //- Further to that a native package may only be dependent on other native packages or standard node.js packages
 
-const Maybe = mrequire("core:Data.Native.Maybe:1.0.0");
+const Maybe = mrequire("core:Data.Native.Maybe:1.3.0");
 
 
 //- Get the number of elements within an array.
