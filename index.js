@@ -157,8 +157,21 @@ assumptionEqual(join([])(", "), "");
 //- the predicate was true.
 //= filter :: (a -> Bool) -> Array a -> Array a
 const filter = predicate => a =>
-    a.filter(predicate);;
+    a.filter(predicate);
 assumptionEqual(filter(n => n > 5)([1, 10, 2, 9, 3, 8, 4, 7, 5, 6]), [10, 9, 8, 7, 6]);
+
+
+//- Sort the elements of an array based on the passed compare function.
+//- * If compare(a)(b) is less than 0, sort a to a lower index than b, i.e. a comes first.
+//- * If compare(a)(b) returns 0, leave a and b unchanged with respect to each other, but sorted with respect to all different elements.
+//- * If compare(a)(b) is greater than 0, sort b to a lower index than a.
+//- compare(a)(b) must always return the same value when given a specific pair of elements a and b as its two arguments.
+//- If inconsistent results are returned then the sort order is undefined.
+//= sort :: (a -> a -> Native.Integer) -> Array a -> Array a
+const sort = compare => a =>
+    [...a].sort((x, y) => compare(x)(y));
+assumptionEqual(sort(a => b => a < b ? -1 : a > b ? 1 : 0)([1, 9, 2, 8, 3, 7, 4, 6, 5]), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
+assumptionEqual(sort(a => b => a < b ? -1 : a > b ? 1 : 0)(["one", "nine", "two", "eight", "three", "seven", "four", "six", "five"]), ["eight","five","four","nine","one","seven","six","three","two"]);
 
 
 module.exports = {
@@ -174,5 +187,6 @@ module.exports = {
     range,
     reduce,
     slice,
+    sort,
     zipWith
 };
