@@ -165,6 +165,7 @@ module.exports = {
     append,
     at,
     concat,
+    filter,
     findMap,
     join,
     length,
