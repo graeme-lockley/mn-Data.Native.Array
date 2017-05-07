@@ -153,6 +153,14 @@ assumptionEqual(join([1, 2, 3])(", "), "1, 2, 3");
 assumptionEqual(join([])(", "), "");
 
 
+//- Filter all elements within an array based on a predicate and return a new array containing only those elements for
+//- the predicate was true.
+//= filter :: (a -> Bool) -> Array a -> Array a
+const filter = predicate => a =>
+    a.filter(predicate);;
+assumptionEqual(filter(n => n > 5)([1, 10, 2, 9, 3, 8, 4, 7, 5, 6]), [10, 9, 8, 7, 6]);
+
+
 module.exports = {
     append,
     at,
